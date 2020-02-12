@@ -1,13 +1,93 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+html { /* body won't work ¯\_(ツ)_/¯ */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: #1b262c;
+  color: #bbe1fa;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, button {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.Code {
+  justify-content: center;
+}
+
+.section {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+
+.Home {
+  flex: 1;
+  width: 100%;
+}
+
+.Home p{
+  display: inline;
+  font-size: 10px;
+}
+
+.Info {
+  background: #1b262c;
+}
+
+.FotoPerfil {
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+  border: 2px solid #3282b8;
+}
+
+aside {
+  width: 95px;
+  height: 100vh;
+  background: #0f4c75;
+  box-shadow: 0 0 14px 0 rgba(0,0,0, 0.02);
+  border-radius: 2px;
+  padding: 30px 20px;
+  border-right: 2px solid #3282b8;
+}
+
+.asideButton {
+  width: 100%;
+  margin-left: 0px;
+  border: 0;
+  margin-top: 30px;
+  background: transparent;
+  border-radius: 2px;
+  color: #3282b8;
+  cursor: pointer;
+  transition: background 0.5s;
+  display:flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.asideButton strong {
+  font-size: 8px;
+}
+
+.asideButton:hover {
+  color: #bbe1fa;
 }

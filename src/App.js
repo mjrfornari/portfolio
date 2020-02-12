@@ -1,25 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import Typist from 'react-typist';
+import { Animated } from "react-animated-css";
+import { Icon } from 'react-icons-kit'
+import {iosContact} from 'react-icons-kit/ionicons/iosContact'
+import {codeWorking} from 'react-icons-kit/ionicons/codeWorking'
+import {iosBook} from 'react-icons-kit/ionicons/iosBook'
+
 import './App.css';
 
 function App() {
+  const [isCodeVisible, setIsCodeVisible] = useState(true)
+  const [isPortfolioVisible, setIsPortfolioVisible] = useState(false)
+  const [toggled, setToggled] = useState(true)
+
+  useEffect(()=>{
+    
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div id="app" className="Home" >
+        { toggled ? (
+          <Animated animationOut="fadeOut" animationOutDuration={600} isVisible={isCodeVisible}>
+              <Typist startDelay={3000}
+                cursor={{...Typist.cursor, element: '_', blink: true, hideWhenDone: true, hideWhenDoneDelay: 0}}
+                onTypingDone={()=> {
+                  setTimeout(() => {
+                    setIsCodeVisible(false)
+                    setTimeout(() => {
+                      setIsPortfolioVisible(true)
+                      setToggled(false)
+                    }, 1500)
+                  }, 1000)
+                }}
+              >
+                <p className="Code">showMarcosFornariPortfolio();</p>
+              </Typist>
+          </Animated>
+        ) : (
+          <Animated animationIn="fadeIn" animationInDuration={1000} isVisible={false || isPortfolioVisible}>
+              <aside>
+                <img src="perfil.jpg" className="FotoPerfil" />
+                <button onClick={(e)=>e.preventDefault()} className="asideButton">
+                  <Icon icon={iosContact} size={50}/>
+                  <strong>Contact</strong>
+                </button>
+                <button onClick={(e)=>e.preventDefault()} className="asideButton">
+                  <Icon icon={iosBook} size={50}/>
+                  <strong>Bio</strong>
+                </button>
+                <button onClick={(e)=>e.preventDefault()} className="asideButton">
+                  <Icon icon={codeWorking} size={50}/>
+                  <strong>Projects</strong>
+                </button>
+              </aside> 
+              <div className="Info">
+
+              </div>
+          </Animated>)
+        }
+      </div>
+    </>
   );
 }
 
