@@ -22,7 +22,7 @@ function App() {
       <div id="app" className="Home" >
         { toggled ? (
           <Animated animationOut="fadeOut" animationOutDuration={600} isVisible={isCodeVisible}>
-              <Typist startDelay={3000}
+              <Typist className="Code" startDelay={3000}
                 cursor={{...Typist.cursor, element: '_', blink: true, hideWhenDone: true, hideWhenDoneDelay: 0}}
                 onTypingDone={()=> {
                   setTimeout(() => {
@@ -34,7 +34,7 @@ function App() {
                   }, 1000)
                 }}
               >
-                <p className="Code">showMarcosFornariPortfolio();</p>
+                <p>showMarcosFornariPortfolio();</p>
               </Typist>
           </Animated>
         ) : (
