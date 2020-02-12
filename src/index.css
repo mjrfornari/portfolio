@@ -69,8 +69,8 @@ aside {
 }
 
 .asideButton {
-  width: 100%;
-  margin-left: 0px;
+  width: 150%;
+  margin-left: -25%;
   border: 0;
   margin-top: 30px;
   background: transparent;
@@ -87,6 +87,7 @@ aside {
 
 .asideButton strong {
   font-size: 8px;
+  width: 100%;
 }
 
 .asideButton:hover {
