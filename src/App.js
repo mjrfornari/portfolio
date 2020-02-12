@@ -22,7 +22,7 @@ function App() {
       <div id="app" className="Home" >
         { toggled ? (
           <Animated animationOut="fadeOut" animationOutDuration={600} isVisible={isCodeVisible}>
-              <Typist className="Code" startDelay={3000}
+              <Typist className="Code" startDelay={1000} avgTypingDelay={40}
                 cursor={{...Typist.cursor, element: '_', blink: true, hideWhenDone: true, hideWhenDoneDelay: 0}}
                 onTypingDone={()=> {
                   setTimeout(() => {
@@ -30,8 +30,8 @@ function App() {
                     setTimeout(() => {
                       setIsPortfolioVisible(true)
                       setToggled(false)
-                    }, 1500)
-                  }, 1000)
+                    }, 1000)
+                  }, 700)
                 }}
               >
                 <p>showMarcosFornariPortfolio();</p>
