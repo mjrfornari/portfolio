@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Typist from 'react-typist';
 import { Animated } from "react-animated-css";
 import '../App.css';
 

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Animated } from "react-animated-css";
 import '../App.css';
 
-function Projects({ visible }) {
+function Skills({ visible }) {
 
   useEffect(()=>{
     
@@ -11,8 +11,8 @@ function Projects({ visible }) {
   return (
     <>
         <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={500} animationOutDuration={500} isVisible={true}>
-            <div className="page Projects" id="projects">
-                <h1>Projects</h1>
+            <div className="page Skills" id="skills">
+                <h1>Skills</h1>
 
             </div>                 
         </Animated>
@@ -20,4 +20,4 @@ function Projects({ visible }) {
   );
 }
 
-export default Projects;
+export default Skills;

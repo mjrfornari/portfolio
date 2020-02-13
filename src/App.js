@@ -5,25 +5,20 @@ import { Animated } from "react-animated-css";
 import { Icon } from 'react-icons-kit'
 import { LinkContainer } from 'react-router-bootstrap'
 import {iosContact} from 'react-icons-kit/ionicons/iosContact'
+import {u1F4AA} from 'react-icons-kit/noto_emoji_regular/u1F4AA'
 import {codeWorking} from 'react-icons-kit/ionicons/codeWorking'
 import {iosBook} from 'react-icons-kit/ionicons/iosBook'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import Bio from './pages/Bio'
+import Skills from './pages/Skills'
 
 import './App.css';
 
 function App() {
   const [isCodeVisible, setIsCodeVisible] = useState(true)
   const [isPortfolioVisible, setIsPortfolioVisible] = useState(false)
-  const [showPage, setShowPage] = useState('Contact')
   const [toggled, setToggled] = useState(true)
-
-  function setDivFocus (e, page) {
-    e.preventDefault(); 
-    setShowPage(page)
-    console.log(page)
-  }
 
   useEffect(()=>{
   }, [])
@@ -55,7 +50,7 @@ function App() {
               
                 <aside>
                 
-                  <img src="perfil.jpg" className="FotoPerfil" />
+                  <img alt="perfil" src="perfil.jpg" className="FotoPerfil" />
                   <LinkContainer to={'/contact'}>
                     <button className="asideButton">
                       <Icon icon={iosContact} size={50}/> Contact
@@ -64,6 +59,11 @@ function App() {
                   <LinkContainer to={'/bio'} className="asideButton">
                     <button className="asideButton">
                       <Icon icon={iosBook} size={50}/> Bio
+                    </button>
+                  </LinkContainer>
+                  <LinkContainer to={'/skills'} className="asideButton">
+                    <button className="asideButton">
+                      <Icon icon={u1F4AA} size={50}/> Skills
                     </button>
                   </LinkContainer>
                   <LinkContainer to={'/projects'} className="asideButton">
@@ -82,6 +82,7 @@ function App() {
                       <Route path="/contact" component={ Contact } />
                       <Route exact path="/bio" component={ Bio } />
                       <Route exact path="/projects" component={ Projects } />
+                      <Route exact path="/skills" component={ Skills } />
                       <Route component={ Contact } />
                     </Switch>
                   </div>
