@@ -13,6 +13,11 @@ function App() {
   const [isPortfolioVisible, setIsPortfolioVisible] = useState(false)
   const [toggled, setToggled] = useState(true)
 
+  function setDivFocus (e, id) {
+    e.preventDefault(); 
+    document.getElementById(id).scrollIntoView();
+  }
+
   useEffect(()=>{
     
   }, [])
@@ -39,23 +44,42 @@ function App() {
           </Animated>
         ) : (
           <Animated animationIn="fadeIn" animationInDuration={1000} isVisible={false || isPortfolioVisible}>
-              <aside>
-                <img src="perfil.jpg" className="FotoPerfil" />
-                <button onClick={(e)=>e.preventDefault()} className="asideButton">
-                  <Icon icon={iosContact} size={50}/>
-                  <strong>Contact</strong>
-                </button>
-                <button onClick={(e)=>e.preventDefault()} className="asideButton">
-                  <Icon icon={iosBook} size={50}/>
-                  <strong>Bio</strong>
-                </button>
-                <button onClick={(e)=>e.preventDefault()} className="asideButton">
-                  <Icon icon={codeWorking} size={50}/>
-                  <strong>Projects</strong>
-                </button>
-              </aside> 
-              <div className="Info">
+              <div className="mainScreen">
+                <aside>
+                  <img src="perfil.jpg" className="FotoPerfil" />
+                  <button onClick={(e) => setDivFocus(e, 'contact')} className="asideButton">
+                    <Icon icon={iosContact} size={50}/>
+                    <strong>Contact</strong>
+                  </button>
+                  <button onClick={(e) => setDivFocus(e, 'bio')} className="asideButton">
+                    <Icon icon={iosBook} size={50}/>
+                    <strong>Bio</strong>
+                  </button>
+                  <button onClick={(e) => setDivFocus(e, 'projects')} className="asideButton">
+                    <Icon icon={codeWorking} size={50}/>
+                    <strong >Projects</strong>
+                  </button>
+                </aside> 
+                <main className="Info">
+                  <div className="InfoTitle">
+                    <strong>Marcos Fornari</strong><br/>
+                    <strong>Full Stack Developer</strong>
+                  </div>
+                  <div className="InfoBody">
+                    <div className="Contact" id="contact">
+                      <p>Contact</p>
+                    </div>
+                    
 
+                    <div className="Bio" id="bio">
+                      <p>Bio</p>
+                    </div> 
+
+                    <div className="Projects" id="projects">
+                      <p>Projects</p>
+                    </div>                 
+                  </div>
+                </main>
               </div>
           </Animated>)
         }
