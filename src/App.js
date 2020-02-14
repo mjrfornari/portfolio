@@ -28,7 +28,7 @@ function App() {
       <div id="app" className="Home" >
         { toggled ? (
           <Animated animationOut="fadeOut" animationOutDuration={600} isVisible={isCodeVisible}>
-              <Typist className="Code" startDelay={1000} avgTypingDelay={40}
+              <Typist className="Code" startDelay={600} avgTypingDelay={30}
                 cursor={{...Typist.cursor, element: '_', blink: true, hideWhenDone: true, hideWhenDoneDelay: 0}}
                 onTypingDone={()=> {
                   setTimeout(() => {
@@ -50,7 +50,7 @@ function App() {
               
                 <aside>
                 
-                  <img alt="perfil" src="perfil.jpg" className="FotoPerfil" />
+                  <img alt="perfil" src="perfil.jpg" className="FotoPerfil" id='perfil'/>
                   <LinkContainer to={'/contact'}>
                     <button className="asideButton">
                       <Icon icon={iosContact} size={50}/> Contact
@@ -73,7 +73,7 @@ function App() {
                   </LinkContainer>
                 </aside> 
                 <main className="Info">
-                  <div className="InfoTitle">
+                  <div className="InfoTitle" id='infoTitle'>
                     <strong>Marcos Fornari</strong><br/>
                     <strong>Full Stack Developer</strong>
                   </div>
